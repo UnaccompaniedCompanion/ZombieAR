@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+#menu,
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 3px solid #00ff00;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+    pointer-events: auto;
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 3em;
+    color: #00ff00;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #ff0000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.info {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #aaa;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1em;
+    line-height: 1.8;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.controls strong {
+    color: #00ff00;
+}
+
+.ar-info {
+    background: rgba(255, 102, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1em;
+    line-height: 1.6;
+    border: 1px solid rgba(255, 102, 0, 0.4);
+    color: #ffaa66;
+}
+
+.btn {
+    background: linear-gradient(135deg, #00ff00, #00aa00);
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+    text-transform: uppercase;
+    pointer-events: auto;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #00ff00, #00cc00);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 255, 0, 0.3);
+}
+
+#stats {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    gap: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    pointer-events: none;
+}
+
+.stat {
+    text-align: center;
+}
+
+.label {
+    display: block;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.stat span:last-child {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    display: none;
+    pointer-events: none;
+}
+
+#crosshair::before,
+#crosshair::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+#crosshair::before {
+    width: 2px;
+    height: 20px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+#crosshair::after {
+    width: 20px;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+#gameOver p {
+    font-size: 1.5em;
+    margin: 15px 0;
+    color: #fff;
+}
+
+#gameOver span {
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* VR Button override */
+#VRButton {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    padding: 12px 30px !important;
+    background: linear-gradient(135deg, #0066ff, #0044cc) !important;
+    border: 2px solid #0088ff !important;
+    border-radius: 10px !important;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.5) !important;
+    transition: all 0.3s ease !important;
+    z-index: 9999 !important;
+}
+
+#VRButton:hover {
+    background: linear-gradient(135deg, #0088ff, #0066ff) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.7) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    #menu,
+    #gameOver {
+        padding: 30px 20px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+
+    #stats {
+        gap: 15px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .stat span:last-child {
+        font-size: 1.4em;
+    }
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+#menu {
+    animation: fadeIn 0.5s ease-out;
+}
