@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebXR Zombie Shooter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- UI Overlay -->
+    <div id="overlay">
+        <div id="menu">
+            <h1>🧟 Zombie Shooter VR/AR 🧟</h1>
+            <p class="info">Experience zombies in VR or AR! Defend yourself against the zombie horde!</p>
+            <button id="startButton" class="btn">Enter VR Mode</button>
+            <p class="controls">
+                <strong>Controls:</strong><br>
+                🎮 VR Controllers: Point and pull trigger to shoot<br>
+                📱 AR Mode: Tap screen to place game, then tap to shoot<br>
+                🖱️ Mouse/Touch: Click to shoot (non-VR/AR mode)<br>
+                👁️ Look around to aim
+            </p>
+            <p class="ar-info">
+                💡 <strong>AR Mode:</strong> Use the orange "START AR" button on mobile to play in augmented reality!
+            </p>
+            <div id="stats">
+                <div class="stat">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Health:</span>
+                    <span id="health">100</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Zombies:</span>
+                    <span id="zombieCount">0</span>
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display: none;">
+            <h2>💀 GAME OVER 💀</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Zombies Killed: <span id="zombiesKilled">0</span></p>
+            <button id="restartButton" class="btn">Play Again</button>
+        </div>
+        <div id="crosshair"></div>
+    </div>
+
+    <!-- Three.js and WebXR -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/examples/js/webxr/VRButton.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
